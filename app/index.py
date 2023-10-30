@@ -1,11 +1,16 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import data
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    kw = request.args.get('kw')
+    cates = data.get_categories()
+    prods = data.get_products(kw)
+
+    return render_template('index.html', categories = cates, products = prods)
 
 
 if __name__ == '__main__':
