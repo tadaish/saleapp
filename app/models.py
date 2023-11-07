@@ -23,17 +23,17 @@ class Product(db.Model):
 
 if __name__ == '__main__':
     with app.app_context():
-        #db.create_all()
+        # db.create_all()
 
-        # c1 = Category(name='Mobile')
-        # c2 = Category(name='Tablet')
-        # c3 = Category(name='Desktop')
+        #c1 = Category(name='Mobile')
+        #c2 = Category(name='Tablet')
+        #c3 = Category(name='Desktop')
 
-        # db.session.add(c1)
-        # db.session.add(c2)
-        # db.session.add(c3)
+        #db.session.add(c1)
+        #db.session.add(c2)
+        #db.session.add(c3)
 
-        # db.session.commit()
+        #db.session.commit()
 
         p1 = Product(name='iPhone 13', price=22000000, category_id=1)
         p2 = Product(name='Galaxy Tab S9', price=28000000, category_id=2)
@@ -41,5 +41,5 @@ if __name__ == '__main__':
         p4 = Product(name='Galaxy S23', price=18000000, category_id=1)
         p5 = Product(name='iPhone 15', price=22000000, category_id=1)
 
-        #db.session.add_all([p1, p2, p3, p4])
-        #db.session.commit()
+        db.session.add_all([p1, p2, p3, p4])
+        db.session.commit()

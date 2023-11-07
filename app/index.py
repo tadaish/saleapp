@@ -2,8 +2,6 @@ from flask import Flask, render_template, request
 import data
 from app import app
 
-app = Flask(__name__)
-
 
 @app.route("/")
 def index():
