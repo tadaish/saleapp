@@ -1,4 +1,6 @@
-from app.models import Category, Product
+import hashlib
+
+from app.models import Category, Product, User
 
 
 def get_categories():
@@ -12,3 +14,14 @@ def get_products(kw):
         products = products.filter(Product.name.contains(kw))
 
     return products.all()
+
+
+def auth_user(username, password):
+    password = str(hashlib.md5(password.encode('utf-8')).hexdigest())
+
+    return User.query.filter(User.username.__eq__(username),
+                             User.password.__eq__(password)).first()
+
+
+def get_user_by_id(user_id):
+    return User.query.get(user_id)
